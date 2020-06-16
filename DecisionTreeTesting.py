@@ -67,7 +67,7 @@ Y = dataset[:,0]
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.3)
 for dept in range(5,8):
     for feats in range(5,8):
-        classifier= GradientBoostingClassifier(max_depth=dept,max_features=feats)
+        classifier= DecisionTreeClassifier(max_depth=dept, max_features=feats,splitter="best",criterion="entropy")
         classifier.fit(X_train, Y_train)
         print("depth:",dept,"features:",feats)
         print("Score",classifier.score(X_train, Y_train))
